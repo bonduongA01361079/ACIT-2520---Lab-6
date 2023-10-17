@@ -30,13 +30,12 @@ const unzip = (pathIn, pathOut) => {
     fs.createReadStream(pathIn) 
       .pipe(unzipper.Extract({ path: pathOut}))
       .on("error", (err) => {
-        console.error(err);
         reject(err);
       })
       .on("end", () => {
         resolve("Extraction operation complete");
-        });
-    });
+      });
+  });
 };
 
 /**
